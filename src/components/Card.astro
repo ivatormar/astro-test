@@ -1,61 +1,56 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
+const Tarjeta = 'div';
+const Container = 'div';
+
+export interface Props {
+    nombre: string;
+    ocupacion?: string;
+    avatar?: boolean;
 }
+const { nombre, ocupacion = 'Sin definir', avatar = false } = Astro.props;
 
-const { href, title, body } = Astro.props;
 ---
+<script>
+    const button=document.getElementById('btn')
+    button?.addEventListener('click',()=>{
+        alert('hola')
+    })
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+</script>
+<button id="btn">BUTTO</button>
+<Tarjeta class='card'>
+    <img
+        src={avatar
+            ? 'images/miniature-3365503_1280.jpg'
+            : 'images/woman-1245817_1280.jpg'}
+        alt='img-1'
+        style='width: 100%;'
+    />
+    <Container class='container'>
+        <h4>{nombre}</h4>
+        <p>{ocupacion}</p>
+        <slot name='desc'>
+            <p>Contenido de la descripcion</p>
+        </slot>
+    </Container>
+</Tarjeta>
+
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+        transition: 0.3s;
+        margin-left: 50px;
+        width: 15%;
+        margin-bottom: 15px;
+        padding: 20px;
+        color: aliceblue;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        padding: 2px 16px;
+    }
 </style>

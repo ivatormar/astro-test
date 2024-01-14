@@ -1,0 +1,35 @@
+---
+const titulo = 'Mi primer componente';
+const items = ['Gato', 'Perro', 'Tigre', 'Leon'];
+const style = 'estilo-de-items';
+---
+
+<h1>{titulo}</h1>
+
+<ul>
+    {items.map((item) => <li class={style}>{item}</li>)}
+</ul>
+
+<ul>
+    {
+        items.map((item) => (
+            <>
+                <li class={style}> FUNCA</li>
+            </>
+        ))
+    }
+</ul>
+
+<style>
+    h1 {
+        color: aquamarine;
+    }
+    li {
+        color: aliceblue;
+    }
+    .estilo-de-items {
+        color: aliceblue;
+        list-style-type: armenian;
+        font-weight: bold;
+    }
+</style>
