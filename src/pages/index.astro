@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Titulo from '../components/Titulo.astro';
-import Card from '../components/Card.astro';
-import JSON from '../components/JSON.astro';
+import Layout from '@layouts/Layout.astro';
+import Titulo from '@components/Titulo.astro';
+import Card from '@components/Card.astro';
+import JSON from '@components/JSON.astro';
 ---
 
 <Layout title='Zero Time to Astro.'>
@@ -12,12 +12,12 @@ import JSON from '../components/JSON.astro';
     <Card nombre='Ivan' ocupacion='Self-Improvement' />
     <Card nombre='Maria' ocupacion='Self-Destruction' avatar={true} />
     <Card nombre='Lola' avatar={false}>
-        <p slot="desc">
+        <p slot='desc'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ut
             minus tempore ipsa quibusdam perspiciatis, vel, pariatur
             reprehenderit eum est maiores magni earum tenetur voluptatum
             asperiores porro sapiente quia enim.
         </p>
     </Card>
-	<JSON/>
+    <JSON />
 </Layout>
